@@ -1,0 +1,36 @@
+name: Build Windows Driver
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up MSBuild
+      uses: microsoft/setup-msbuild@v1.1
+
+    - name: Install Visual Studio
+      uses: microsoft/setup-visualstudio@v1
+      with:
+        channel: 2019 # Change this to match your Visual Studio version if needed
+        includeRecommended: true
+        includeOptional: true
+
+    - name: Install Windows Driver Kit
+      run: choco install windows-driver-kit -y
+
+    - name: Build Solution
+      run: |
+        msbuild driver\kmdf\fts5cu56a.vcxproj /p:Configuration=Release /p:Platform=ARM64
+
+    - name: Archive build artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: driver-build
+        path: |
+          driver\kmdf\ARM64\Release\*  # Adjust the path if your build output is in a different location
