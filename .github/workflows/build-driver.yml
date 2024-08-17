@@ -5,25 +5,30 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest
-
+    strategy:
+      matrix:
+        configuration: [Debug, Release]
+        platform: [ARM64]  # Specify ARM64 as the target platform
+    runs-on: windows-2022
+    env:
+      Solution_Path: driver\kmdf\fts5cu56a.vcxproj  # Path to your driver project file (.vcxproj)
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      - name: Check out repository code
+        uses: actions/checkout@v3
 
-    - name: Set up MSBuild
-      uses: microsoft/setup-msbuild@v1.1
+      - name: Add MSBuild to PATH
+        uses: microsoft/setup-msbuild@v1.0.2
 
-    - name: Install Windows Driver Kit
-      run: choco install windows-driver-kit -y
+      - name: Build solution
+        run: |
+          msbuild ${{ env.Solution_Path }} -p:Configuration=${{ env.Configuration }} -p:Platform=${{ env.Platform }}
+        env:
+          Configuration: ${{ matrix.configuration }}
+          Platform: ${{ matrix.platform }}
 
-    - name: Build Solution
-      run: |
-        msbuild driver\kmdf\fts5cu56a.vcxproj /p:Configuration=Release /p:Platform=ARM64
-
-    - name: Archive build artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        name: driver-build
-        path: |
-          driver\kmdf\ARM64\Release\*  # Adjust the path if your build output is in a different location
+      - name: Archive all build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: driver-build
+          path: |
+            driver\kmdf\ARM64\${{ matrix.configuration }}\*  # Adjust the path to match where your build outputs are stored
