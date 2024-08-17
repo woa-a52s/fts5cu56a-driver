@@ -261,7 +261,7 @@
     <ResourceCompile Include="fts5cu56a.rc" />
   </ItemGroup>
   <ItemGroup>
-    <Inf Exclude="@(Inf)" Include="*.inx" />
+    <Inf Exclude="@(Inf)" Include="fts5cu56a.inf" />
     <FilesToPackage Include="$(TargetPath)" Condition="'$(ConfigurationType)'=='Driver' or '$(ConfigurationType)'=='DynamicLibrary'" />
   </ItemGroup>
   <ItemGroup>
