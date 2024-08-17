@@ -14,13 +14,6 @@ jobs:
     - name: Set up MSBuild
       uses: microsoft/setup-msbuild@v1.1
 
-    - name: Install Visual Studio
-      uses: microsoft/setup-visualstudio@v1
-      with:
-        channel: 2019 # Change this to match your Visual Studio version if needed
-        includeRecommended: true
-        includeOptional: true
-
     - name: Install Windows Driver Kit
       run: choco install windows-driver-kit -y
 
