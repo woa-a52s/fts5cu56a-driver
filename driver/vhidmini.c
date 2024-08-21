@@ -1980,7 +1980,7 @@ Return Value:
     }
 }
 #pragma warning(disable:4214)
-/* FTS fts5cu56a */
+/* FingerTipS556A */
 struct fts_event_coordinate {
 	UCHAR eid:2;
 	UCHAR tid:4;

@@ -108,23 +108,23 @@
   </ImportGroup>
   <ItemGroup Label="WrappedTaskItems" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <TargetName>fts5cu56a</TargetName>
+    <TargetName>FingerTipS556A</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <TargetName>fts5cu56a</TargetName>
+    <TargetName>FingerTipS556A</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <TargetName>fts5cu56a</TargetName>
+    <TargetName>FingerTipS556A</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
-    <TargetName>fts5cu56a</TargetName>
+    <TargetName>FingerTipS556A</TargetName>
     <Inf2CatUseLocalTime>true</Inf2CatUseLocalTime>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <TargetName>fts5cu56a</TargetName>
+    <TargetName>FingerTipS556A</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
-    <TargetName>fts5cu56a</TargetName>
+    <TargetName>FingerTipS556A</TargetName>
     <Inf2CatUseLocalTime>true</Inf2CatUseLocalTime>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -258,10 +258,10 @@
       <WppScanConfigurationData Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">$(SolutionDir)driver\trace.h</WppScanConfigurationData>
       <WppAdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">$(SolutionDir)driver;%(WppAdditionalIncludeDirectories)</WppAdditionalIncludeDirectories>
     </ClCompile>
-    <ResourceCompile Include="fts5cu56a.rc" />
+    <ResourceCompile Include="FingerTipS556A.rc" />
   </ItemGroup>
   <ItemGroup>
-    <Inf Exclude="@(Inf)" Include="fts5cu56a.inf" />
+    <Inf Exclude="@(Inf)" Include="FingerTipS556A.inf" />
     <FilesToPackage Include="$(TargetPath)" Condition="'$(ConfigurationType)'=='Driver' or '$(ConfigurationType)'=='DynamicLibrary'" />
   </ItemGroup>
   <ItemGroup>

@@ -32,7 +32,7 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <Inf Include="fts5cu56a.inf">
+    <Inf Include="FingerTipS556A.inf">
       <Filter>Driver Files</Filter>
     </Inf>
   </ItemGroup>
